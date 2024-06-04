@@ -1,4 +1,5 @@
 <script lang="ts">
+	import AudioViz from '$lib/components/AudioViz.svelte';
 	import Recorder from '$lib/components/Recorder.svelte';
 	import Play from '$lib/components/Play.svelte';
 	import { browser } from '$app/environment';
@@ -14,6 +15,7 @@
 
 <div>
 	{#await stream then s}
+		<AudioViz stream={s} />
 		<Recorder onrecorddone={recording} stream={s} />
 	{/await}
 </div>
